@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 import { Product } from "./components/Product"
 
 export function Home() {
@@ -77,9 +77,12 @@ export function Home() {
             <View style={style.list}>
                 {/* <Text style={style.listEmptyText}>Comprou todos os produtos? Adicione produtos a sua lista de compras</Text> */}
 
-            {
-                products.map((product) => <Product name={product} onRemove={() => handleRemoveProduct(product)} /> )
-            }
+            <ScrollView>
+                {
+                    products.map((product) => <Product  key={product} name={product} onRemove={() => handleRemoveProduct(product)} /> )
+                }
+            </ScrollView>
+            
             </View>
         </View>
     )
