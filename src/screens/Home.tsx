@@ -2,7 +2,7 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-nativ
 import { Product } from "./components/Product"
 
 export function Home() {
-    
+
     const products = [
         "Arroz",
         "Feijão",
@@ -77,9 +77,8 @@ export function Home() {
             <View style={style.list}>
                 {/* <Text style={style.listEmptyText}>Comprou todos os produtos? Adicione produtos a sua lista de compras</Text> */}
 
-            <Product name="Iphone" onRemove={() => handleRemoveProduct("Iphone")} />
             {
-                products.map()
+                products.map((product) => <Product name={product} onRemove={() => handleRemoveProduct(product)} /> )
             }
             </View>
         </View>

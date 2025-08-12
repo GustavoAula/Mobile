@@ -21,7 +21,8 @@ export function Product(props: Props){
             <Text style={styles.stylesName}>{props.name}</Text>
 
             <TouchableOpacity 
-            style={styles.button}>
+                style={styles.button}
+                onPress={props.onRemove}>
                 <Text style={styles.buttonText}>-</Text>
             </TouchableOpacity>
         </View>
@@ -37,6 +38,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderBottomLeftRadius: 5,
         borderTopLeftRadius: 5,
+        marginBottom: 8
     },
     button: {
         width: 56,
