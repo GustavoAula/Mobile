@@ -1,4 +1,4 @@
-import { ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 import { Product } from "./components/Product"
 
 export function Home() {
@@ -77,12 +77,25 @@ export function Home() {
             <View style={style.list}>
                 {/* <Text style={style.listEmptyText}>Comprou todos os produtos? Adicione produtos a sua lista de compras</Text> */}
 
-            <ScrollView>
+            {/* <ScrollView>
                 {
                     products.map((product) => <Product  key={product} name={product} onRemove={() => handleRemoveProduct(product)} /> )
                 }
-            </ScrollView>
-            
+            </ScrollView> */}
+
+            <FlatList
+                data={products}
+                keyExtractor={(item) => item}
+                contentContainerStyle={style.list}
+                renderItem={({item}) => <Product name={item} onRemove={() => handleRemoveProduct(item)} />}
+                showsVerticalScrollIndicator={false}
+                ListEmptyComponent={() => ( 
+                    <Text style={style.listEmptyText}>
+                        Comprou todos os produtos? Adicione produtos a sua lista de compras.
+                    </Text>
+
+                )}
+            />
             </View>
         </View>
     )
