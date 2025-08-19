@@ -64,7 +64,7 @@ export const style = StyleSheet.create({
         textAlign: 'center',
     },
     list:{
-        flex: 1,
+        flexGrow: 1,
         justifyContent: 'center',
     }
 })

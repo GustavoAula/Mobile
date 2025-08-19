@@ -1,4 +1,4 @@
-import { FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Alert, FlatList, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native"
 import { Product } from "../components/Product"
 import { style } from "./styles";
 
@@ -48,11 +48,23 @@ export function Home() {
       ];
 
     function handleAddProduct(){
-
+        if(products.includes("Arroz")){
+            Alert.alert("Produto já cadastrado!", "Já existe um produto na lista com esse nome.", );
+        }
     }
 
     function handleRemoveProduct(name: String){
-        console.log(`Você clicou no botão de Remover Produto $(name)`)
+        Alert.alert("Remover", `Deseja remover o produto ${name}?`, [
+            {
+                text: "Sim",
+                onPress: () => Alert.alert("Deletado"),
+                style: "destructive"
+            },
+            {
+                text: "Não",
+                style: 'cancel'
+            }
+        ]);
     }
 
     return(
